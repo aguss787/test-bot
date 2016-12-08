@@ -44,13 +44,12 @@ module.exports = function(message, suffix) {
 		Promise.all(promises).then(() => {
 			concateAll(res).then((msg) => {
 				message.channel.sendMessage(msg);
+				resolve('ok');
 			}).catch((msg) => {
 				reject(msg);
 			})
 		}).catch(() => {
-			console.log('error');
+			reject('error');
 		});
-		
-		resolve('ok');
 	});
 }

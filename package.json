@@ -11,8 +11,10 @@
   "author": "Agus Sentosa Hermawan",
   "license": "ISC",
   "dependencies": {
+    "console-stamp": "^0.2.4",
     "discord.js": "^9.3.0",
     "glob": "^7.1.1",
+    "nconf": "^0.8.4",
     "path": "^0.12.7",
     "ramda": "^0.22.1",
     "ytdl-core": "^0.7.18"

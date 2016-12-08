@@ -1,3 +1,4 @@
+require('console-stamp')(console, '[yyyy-mm-dd HH:MM:ss.l]');
 console.log("INIT....");
 const config = require('./config.json');
 
@@ -24,7 +25,7 @@ bot.on('ready', () => {
 
 // create an event listener for messages
 bot.on('message', message => {
-  console.log("msg time: " + message.timestamp);
+  console.log("Message received => " + message.id);
   var start_time = new Date().getTime();
 
   if(message.content[0] !== prefix) return;
@@ -32,16 +33,16 @@ bot.on('message', message => {
   var command = message.content.toLowerCase().split(' ')[0].substring(1);
   var suffix = message.content.substring(command.length + 2);
 
-  console.log(command);
-  console.log(suffix);
+  console.log("Command detected: " + command + ' => "' + suffix + '" => ' + message.id);
 
   if(commands[command]){
+    console.log("Command found! => " + message.id);
   	commands[command](message, suffix).then((msg) => {
   		execution_time = new Date().getTime() - start_time;
-  		console.log('command finished in ' + execution_time);
-  	}, (msg) => {
-  		console.log("error: " + msg);
-  		message.channel.sendMessage("error: " + msg);
+  		console.log('Command finished in ' + execution_time + ' => ' + msg + ' => ' + message.id) ;
+  	}).catch( (msg) => {
+  		console.error("Error: " + msg + ' => ' + message.id);
+  		message.channel.sendMessage("Error: " + msg);
   	});
   } 
 });
