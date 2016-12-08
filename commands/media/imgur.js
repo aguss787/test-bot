@@ -32,14 +32,12 @@ module.exports = function(message, suffix) {
 	            }
 
 	            var link = items[0].link;
-	            console.log(link);
 
 	            message.channel.sendMessage(link).then(() => {
 					return resolve('ok');
 				});
 	        });
 		}).on('error', (e) => {
-			console.log(e);
 			return reject(e);
 		});
 	});
