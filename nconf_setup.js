@@ -1,4 +1,7 @@
 var nconf = require('nconf');
+require('console-stamp')(console, {patern: '[yyyy-mm-dd HH:MM:ss.l]',
+								   metadata: () => {return '[' + process.pid + ']';}
+								  });
 
 module.exports = () => {
 	return new Promise((resolve) => {
