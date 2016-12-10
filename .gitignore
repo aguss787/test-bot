@@ -4,5 +4,5 @@ npm-debug.log.*
 
 test.js
 
-deploy*
+deploy_to*
 credential/**

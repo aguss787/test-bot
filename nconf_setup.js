@@ -8,12 +8,19 @@ module.exports = () => {
 		console.log("Setting up nconf");
 		nconf.argv().env();
 
+		config = require('./config.json');
+
 		var path = [];
 		path['path_base'] = `${__dirname}`;
 		path['path_commands'] = path['path_base'] + `/commands`;
 		path['path_util'] = path['path_base'] + `/util`;
+		path['path_monitor'] = path['path_base'] + `/monitor`;
+
+		var monitor = []
+		monitor['monitor_spawnDelay'] = config.spawnDelay || 500;
 
 		nconf.add('path', { type: 'literal', store: path});
+		nconf.add('monitor', { type: 'literal', store: monitor});
 
 		resolve();
 	});
