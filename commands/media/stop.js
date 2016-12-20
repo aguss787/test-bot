@@ -4,7 +4,11 @@ module.exports = function(message) {
 	return new Promise((resolve, reject) => {
 		var voiceChannel = message.member.voiceChannel;
 	    if (voiceChannel) {
-	      return voiceChannel.leave();
+	    	console.log('asdasd');
+	      voiceChannel.leave();
+	      return resolve();
+	    }else{
+	    	return resolve();
 	    }
 	});
 }
