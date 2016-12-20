@@ -16,8 +16,11 @@ module.exports = () => {
 		path['path_util'] = path['path_base'] + `/util`;
 		path['path_monitor'] = path['path_base'] + `/monitor`;
 
-		var monitor = []
+		var monitor = [];
 		monitor['monitor_spawnDelay'] = config.spawnDelay || 500;
+
+		var manager = [];
+		manager['manager_spawnDelay'] = config.spawnDelay || 500;
 
 		nconf.add('path', { type: 'literal', store: path});
 		nconf.add('monitor', { type: 'literal', store: monitor});

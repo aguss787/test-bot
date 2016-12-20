@@ -16,7 +16,7 @@ require('./nconf_setup.js')().then(() => {
 			coreNum = 1;
 
 		var manager = new discord.ShardingManager("./bot.js", coreNum, true);
-		manager.spawn().catch((e) => {
+		manager.spawn(coreNum, nconf.get('manager_spawnDelay')).catch((e) => {
 			console.log(e);
 		});
 
