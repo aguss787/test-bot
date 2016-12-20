@@ -6,7 +6,7 @@ concateAll = (commands) => {
 
 		var promises = commands.map((item) => {
 			return new Promise((resolve, reject) => {
-				msg += '\n' + item.name + ': ' + item.help;
+				msg += '\n' + item.name + ': ' + item.help + '\n';
 				resolve();
 			});
 		});
