@@ -6,6 +6,7 @@ module.exports = function(message, suffix) {
 		var youTube = new YouTube();
 
 		youTube.setKey(config.key);
+		youTube.addParam('type', 'video');
 
 		youTube.search(suffix, 1, function(error, result) {
 			if (error) {
@@ -17,6 +18,7 @@ module.exports = function(message, suffix) {
 				});
 			}
 			else {
+				console.log(JSON.stringify(result,null,2));
 				var watch_link = config.youtube_watch_prefix + result.items[0].id.videoId;
 				message.channel.sendMessage(watch_link).then(() => {
 					return resolve('ok');
