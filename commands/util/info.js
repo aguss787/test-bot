@@ -3,7 +3,7 @@ const sysInfo = require('./resource/info/sys-info.js');
 
 module.exports = function(message) {
 	return new Promise((resolve, reject) => {
-		var msg = '**System information : **\n`';
+		var msg = '\n**System information : **\n```';
 
 		var gen = sysInfo['gen']();
 		for(var i = 0 ; i < gen.length ; i ++){
@@ -14,7 +14,7 @@ module.exports = function(message) {
 		for(var i = 0 ; i < gen.length ; i ++){
 			msg += '\n' + gen[i].name + ' ' + gen[i].value;
 		}
-		msg += '`';
+		msg += '```';
 		message.channel.sendMessage(msg).then(() => {
 			return resolve('ok');
 		});
