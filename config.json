@@ -1,4 +1,5 @@
 {
 	"token": "insert_discord_token_here",
-	"prefix": "+"
+	"prefix": "+",
+	"spawnDelay": 500
 }
