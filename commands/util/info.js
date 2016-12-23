@@ -1,7 +1,7 @@
 //System information
 const sysInfo = require('./resource/info/sys-info.js');
 
-module.exports = function(message) {
+var command = function(message) {
 	return new Promise((resolve, reject) => {
 		var msg = '\n**System information : **\n```';
 
@@ -19,4 +19,8 @@ module.exports = function(message) {
 			return resolve('ok');
 		});
 	});
+}
+
+module.exports = {
+	'command': command
 }

@@ -1,7 +1,8 @@
 var https = require('https');
 var config = require('./resource/imgur/config.json');
+var nconf = require('nconf');	
 
-module.exports = function(message, suffix) {
+var command = function(message, suffix) {
 	return new Promise((resolve, reject) => {
 		var options = 'https://www.googleapis.com/customsearch/v1?';
 		options = options + '&key=' + config.key;
@@ -42,3 +43,17 @@ module.exports = function(message, suffix) {
 		});
 	});
 }
+
+help = () => {
+	return "Find a picture from imgur";
+}
+
+usage = () => {
+	return "imgur [keywords]";
+}
+
+module.exports = {
+	'command': command,
+	'info': help,
+	'usage': usage
+};

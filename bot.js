@@ -40,7 +40,7 @@ require('./nconf_setup.js')().then(() => {
 
     if(commands[command]){
       console.log("Command found! => " + message.id);
-    	commands[command](message, suffix).then((msg) => {
+    	commands[command].command(message, suffix).then((msg) => {
     		execution_time = new Date().getTime() - start_time;
     		console.log('Command finished in ' + execution_time + ' => ' + msg + ' => ' + message.id) ;
     	}).catch( (msg) => {

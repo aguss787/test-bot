@@ -1,6 +1,7 @@
 var config = require('./resource/youtube/config.json');
+var nconf = require('nconf');
 
-module.exports = function(message, suffix) {
+var command = function(message, suffix) {
 	return new Promise((resolve, reject) => {
 		var YouTube = require('youtube-node');
 		var youTube = new YouTube();
@@ -27,3 +28,17 @@ module.exports = function(message, suffix) {
 		});
 	});
 }
+
+help = () => {
+	return "Find a video from youtube";
+}
+
+usage = () => {
+	return "youtube [keywords]";
+}
+
+module.exports = {
+	'command': command,
+	'info': help,
+	'usage': usage
+};

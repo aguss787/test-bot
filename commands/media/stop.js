@@ -1,6 +1,6 @@
 var yt = require('ytdl-core');
 
-module.exports = function(message) {
+var command = function(message) {
 	return new Promise((resolve, reject) => {
 		var voiceChannel = message.member.voiceChannel;
 	    if (voiceChannel) {
@@ -11,4 +11,8 @@ module.exports = function(message) {
 	    	return resolve();
 	    }
 	});
+}
+
+module.exports = {
+	'command': command
 }
