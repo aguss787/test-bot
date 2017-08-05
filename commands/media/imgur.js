@@ -1,12 +1,11 @@
 var https = require('https');
-var config = require('./resource/imgur/config.json');
 var nconf = require('nconf');	
 
 var command = function(message, suffix) {
 	return new Promise((resolve, reject) => {
 		var options = 'https://www.googleapis.com/customsearch/v1?';
-		options = options + '&key=' + config.key;
-		options = options + '&cx='+ config.cx;
+		options = options + '&key=' + nconf.get('GOOGLE_API_KEY');
+		options = options + '&cx='+ nconf.get('GOOGLE_CX');
 		options = options + '&num=1';
 		options = options + '&searchType=image';		
 		options = options + '&q="' + suffix + '"';

@@ -6,12 +6,12 @@ var command = function(message, suffix) {
 		var YouTube = require('youtube-node');
 		var youTube = new YouTube();
 
-		youTube.setKey(config.key);
+		youTube.setKey(nconf.get('GOOGLE_API_KEY'));
 		youTube.addParam('type', 'video');
 
 		youTube.search(suffix, 1, function(error, result) {
 			if (error) {
-				reject(error);
+				reject(str(error));
 			}
 			else if(result.items.length <= 0){
 				message.channel.sendMessage("No video found :(").then(() => {
@@ -19,7 +19,6 @@ var command = function(message, suffix) {
 				});
 			}
 			else {
-				console.log(JSON.stringify(result,null,2));
 				var watch_link = config.youtube_watch_prefix + result.items[0].id.videoId;
 				message.channel.sendMessage(watch_link).then(() => {
 					return resolve('ok');
