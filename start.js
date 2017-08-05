@@ -1,3 +1,9 @@
+var spawn = require('child_process').spawn;
+var monitor = spawn('node', ['monitor/monitor.js'], {stdio: 'inherit'});
+
+require('./bot.js');
+
+/*
 var nconf = require('nconf');
 var async = require('async');
 var spawn = require('child_process').spawn;
@@ -50,3 +56,4 @@ require('./nconf_setup.js')().then(() => {
 }).catch((e) => {
 	console.error("nconf setup error:\n" + e);
 });	
+*/

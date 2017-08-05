@@ -42,5 +42,5 @@ app.get('/:url([a-zA-Z0-9_.-]+)', function(req, res){
 });
 
 http.listen(env.PORT || env.NODE_PORT || 3000, function () {
-  console.log(`Application worker started...`);
+  console.log(`Monitor worker started...`);
 });
