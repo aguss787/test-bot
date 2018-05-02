@@ -13,6 +13,7 @@ require('./nconf_setup.js')().then(() => {
 
   // the token of your bot - https://discordapp.com/developers/applications/me
   const token = nconf.get('DISCORD_TOKEN'); 
+  // const token = "MjM4NzE2ODk4NTE3MzE5Njgw.DGcQSQ.HqmGqeuX2DVBIctMiLE-jboQ3R4";
 
   //prefix for commands
   const prefix = config.prefix;

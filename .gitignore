@@ -6,3 +6,7 @@ test.js
 
 deploy_to*
 data/**
+
+config.json
+
+package-lock.json

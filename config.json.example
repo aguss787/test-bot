@@ -1,0 +1,7 @@
+{
+	"prefix": "+",
+	"spawnDelay": 500,
+	"DISCORD_TOKEN": "insert token here",
+	"GOOGLE_API_KEY": "insert token here",
+	"GOOGLE_CX": "insert token here"
+}

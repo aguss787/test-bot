@@ -24,6 +24,10 @@ module.exports = () => {
 
 		nconf.add('path', { type: 'literal', store: path});
 		nconf.add('monitor', { type: 'literal', store: monitor});
+		nconf.add('DISCORD_GOOGLE', { type: 'literal', store: config});
+		// nconf.add('DISCORD_TOKEN', { type: 'literal', store: config.discordToken});
+		// nconf.add('GOOGLE_API_KEY', { type: 'literal', store: config.googleApiKey});
+		// nconf.add('GOOGLE_CX', { type: 'literal', store: config.googleApiCx});
 
 		resolve();
 	});
